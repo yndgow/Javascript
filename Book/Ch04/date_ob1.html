@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let today = new Date();
+        let nowMonth = today.getMonth();
+        nowDate = today.getDate();
+        nowDay = today.getDay();
+
+        document.write("<h1>오늘의 날짜정보</h1>");
+        document.write("현재 월 : " + nowMonth, "<br>");
+        document.write("현재 일 : " + nowDate, "<br>");
+        document.write("현재 요일 : " + nowDay, "<br>");
+
+        let nowYear = today.getFullYear();
+        let endDate = new Date(nowYear, 11, 31);
+        let diffDate = endDate.getTime() - today.getTime();
+
+        let result = Math.ceil(diffDate / (60 * 1000 * 60 * 24));
+        document.write('연말 D-day : ' + result + "일 남았습니다.");
+    </script>
+</body>
+</html>
