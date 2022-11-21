@@ -1,2 +1,4 @@
-const arr = [1,2,3];
-arr.forEach(alert);
+let obj = "{result:0}";
+const data = JSON.stringify(obj);
+console.log(data.result);
+
