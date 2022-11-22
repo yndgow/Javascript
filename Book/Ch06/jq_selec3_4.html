@@ -15,7 +15,10 @@
       });
       $(()=>{
         $('#1, #2').click(function(){
-          console.log($(this));
+          let cbtn = 
+          console.log(typeof cbtn);
+          console.log(cbtn[0],cbtn[2]);
+          
         });
       });
     </script>
@@ -33,8 +36,8 @@
       </p>
     </form>
 
-    <button id="1">1</button>
-    <button id="2">2</button>
+    <button id="1" class="c1 v1">1</button>
+    <button id="2" class="c2">2</button>
   </body>
   
 </html>
