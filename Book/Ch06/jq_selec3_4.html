@@ -13,6 +13,11 @@
         console.log(result_1.value);
 
       });
+      $(()=>{
+        $('#1, #2').click(function(){
+          console.log($(this));
+        });
+      });
     </script>
   </head>
   <body>
@@ -27,5 +32,9 @@
         <input type="text" name="user_id" id="user_id" value="hello" />
       </p>
     </form>
+
+    <button id="1">1</button>
+    <button id="2">2</button>
   </body>
+  
 </html>
