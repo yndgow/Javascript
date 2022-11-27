@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        let div1 = document.querySelector("div");
+        div1.addEventListener("click", (e) => {
+          //console.log(e.target.previousSibling);
+        });
+        let id2 = document.getElementById("id2");
+        console.log(id2.previousElementSibling.textContent);
+
+
+      });
+    </script>
+  </head>
+  <body>
+    <article>
+      <div>
+        <button id="id1">1</button>
+        <button id="id2">2</button>
+        <textarea>댓글내용</textarea>
+      </div>
+    </article>
+    <button id="adddiv">동적</button>
+  </body>
+</html>
