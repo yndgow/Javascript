@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+      <h1 id="title">Hello, World!</h1>
+      <button id="changeButton">Change Text</button>
+	</body>
+  <script>
+    // 'changeButton' 아이디를 가진 요소를 가져옵니다. 이 경우 버튼 요소입니다.
+    let changeBtn = document.getElementById('changeButton');
+    
+    // 버튼 클릭시 호출될 함수를 정의합니다.
+    let clickEvent = function(){
+      let titleElement = document.getElementById('title');
+      titleElement.textContent = 'Hello JavaScript!';
+      titleElement.style.color = 'blue';
+    }
+
+    // 이벤트 리스너 등록 및 이벤트 핸들러 처리
+    // 'changeBtn' 버튼에 클릭 이벤트 리스너를 추가합니다 .버튼이 클릭되면 'click'
+    changeBtn.addEventListener('click', clickEvent);
+
+    document.getElementById('title').addEventListener('click', function(){
+      let titleElement = document.getElementById('title');
+      titleElement.textContent = '안녕 반가워JS';
+      titleElement.style.color = 'red';
+      
+    })
+    
+
+
+
+
+  </script>
+</html>

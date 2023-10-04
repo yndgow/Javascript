@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var n1 = 10;
+        var n2;
+        var n3 = null;
+        console.log(n1);
+        console.log(n2);
+        console.log(n3);
+        
+        ////
+        // 1. 변수 호이스팅
+        console.log('hValue -1 : ' + hValue);
+
+        // 변수 선언만 호이스팅, 값 할당 부분은 되지 않음
+        var hValue = 10; // hValue -1 : undefined
+        
+        console.log('------------------');
+        // 2. 함수 호이스팅
+        sayHello(); // 호이스팅 됨- 함수 선언문은 해당 스코프에 맨위로 올라갑니다.
+
+        function sayHello(){
+            console.log('Hi~~~');
+        }
+
+        // 3. 함수 표현식 - 함수 표현식은 호이스팅 되지 않습니다.
+        //sayHi(); <-- 함수 표현식 호이스팅 불가!!
+
+        var sayHi = function(){
+            console.log('HI~~~');
+        }
+
+        sayHi();
+        
+        
+
+    </script>
+</body>
+</html>
