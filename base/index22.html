@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    ul {
+      list-style: none;
+    }
+    .flex--container {
+      display: flex;
+      justify-content: space-around;
+      margin: 100px;
+    }
+    li {
+      display: flex;
+      align-items: center; /* 수직 중앙 정렬 */
+      justify-content: space-between; /* 요소들 사이에 공간 배분  - 여기서는 수평 정렬  */
+    }
+    label {
+      margin-right: 20px;
+      margin-bottom: 4px;
+    }
+  </style>
+  <body>
+    <div class="flex--container">
+      <form action="" onsubmit="return false;">
+        <fieldset>
+          <legend>배송지입력</legend>
+          <ul>
+            <li>
+              <label for="userName1">이름 : </label>
+              <input type="text" class="input--box" name="name" value="홍길동" />
+            </li>
+            <li>
+              <label for="tel1">연락처 : </label>
+              <input type="text" class="input--box" name="tel" value="12341234" />
+            </li>
+          </ul>
+          <button type="button" onclick="check()">check</button>
+        </fieldset>
+      </form>
+
+      <form action="https://jsonplaceholder.typicode.com/posts" onsubmit="return false;">
+        <fieldset>
+          <legend>배송지입력2</legend>
+          <ul>
+            <li>
+              <label for="userName2">이름 : </label>
+              <input type="text" class="input--box" name="name" value="" />
+            </li>
+            <li>
+              <label for="tel2">연락처 : </label>
+              <input type="text" class="input--box" name="tel" value="" />
+            </li>
+          </ul>
+          <button type="button" onclick="send()">send</button>
+        </fieldset>
+      </form>
+      <script>
+        function check() {
+          let form1 = document.forms[0];
+          let form2 = document.forms[1];
+
+          // 이름 및 연락처 값 복사
+          form2.elements['name'].value = form1.elements['name'].value;
+          form2.elements['tel'].value = form1.elements['tel'].value;
+        }
+
+        function validationForm() {
+          let form2 = document.forms[1];
+          let name = form2.elements['name'].value;
+          let tel = form2.elements['tel'].value;
+
+          // 이름과 연락처의 유효성 검사
+          if (!name) {
+            alert('이름을 입력하세요.');
+            return false;
+          }
+
+          // 연락처는 숫자만 포함해야 하며, 길이는 적어도 1 이상이어야 합니다.
+          if (!tel.match(/^\d+$/) || tel.length < 1) {
+            alert('올바른 연락처를 입력하세요.');
+            return false;
+          }
+
+          return true; // 모든 유효성 검사를 통과하면 true를 반환
+        }
+
+        function send() {
+          // 유효성 검사 수행
+          if (validationForm()) {
+            // 유효성 검사를 통과하면 폼 제출
+            document.forms[1].submit();
+          }
+        }
+      </script>
+    </div>
+  </body>
+</html>

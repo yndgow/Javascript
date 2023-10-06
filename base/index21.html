@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 16px;
+        display: flex;
+        justify-content: center;
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+      li {
+        background-color: #f9f9f9;
+        margin: 8px 0;
+        padding: 8px;
+        border: 1px solid #ccc;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      button {
+        margin-left: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h2>EventListener를 사용한 요소 추가, 삭제, 수정, 토글</h2>
+      <button id="addBtn">아이템 추가</button>
+      <button id="toggleBtn">리스트 토글</button>
+      <ul id="myList">
+        <li>
+          아이템 1
+          <button class="editBtn">수정하기</button>
+          <button class="deleteBtn">삭제하기</button>
+        </li>
+      </ul>
+    </div>
+  </body>
+  <script>
+    let count = 1;
+
+    document.getElementById('addBtn').addEventListener('click', () => {
+      count++;
+      let li = document.createElement('li');
+      li.innerHTML = `
+          아이템 ${count}
+          <button class="editBtn">수정하기</button>
+          <button class="deleteBtn">삭제하기</button>
+        `;
+      let list = document.getElementById('myList');
+      list.append(li);
+    });
+
+    document.getElementById('toggleBtn').addEventListener('click', () => {
+      let list = document.getElementById('myList');
+      list.style.display = list.style.display === 'none' ? '' : 'none';
+    });
+
+    document.getElementById('myList').addEventListener('click', (e) => {
+      if (e.target.className == 'editBtn') {
+        let msg = prompt('수정할 제목을 입력하세요.', e.target.parentElement.firstChild.textContent.trim());
+        if (msg) {
+          e.target.parentElement.firstChild.textContent = msg;
+        }
+      } else if (e.target.className == 'deleteBtn') {
+        if (confirm('삭제하시겠습니까?')) {
+          let li = e.target.parentElement;
+          li.remove();
+        }
+      }
+    });
+  </script>
+</html>
